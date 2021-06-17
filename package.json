@@ -8,10 +8,12 @@
   "license": "CC0-1.0",
   "scripts": {
     "start": "node .",
+    "build": "tsc",
+    "build:watch": "tsc -w",
     "lint": "eslint src",
     "lint:fix": "eslint src --fix",
-    "build": "tsc",
-    "build:watch": "tsc -w"
+    "test": "jest --verbose",
+    "runAll": "yarn build && (yarn lint & yarn test)"
   },
   "devDependencies": {
     "@tsconfig/node14": "^1.0.1",
@@ -19,6 +21,7 @@
     "@typescript-eslint/eslint-plugin": "^4.26.1",
     "@typescript-eslint/parser": "^4.26.1",
     "eslint": "^7.28.0",
+    "jest": "^27.0.4",
     "typescript": "^4.3.2"
   }
 }
