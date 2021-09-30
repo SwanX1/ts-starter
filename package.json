@@ -1,27 +1,60 @@
 {
   "name": "ts-starter",
+  "description": "A quick template for typescript projects.",
   "version": "1.0.0",
   "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
   "esnext": "src/index.ts",
-  "author": "SwanX1 <karliscern@gmail.com>",
+  "author": {
+    "name": "Author Name",
+    "email": "name@example.com",
+    "url": "https://example.com"
+  },
+  "contributors": [
+    {
+      "name": "Contributor Name",
+      "email": "name@example.com",
+      "url": "https://example.com"
+    }
+  ],
   "private": true,
   "license": "CC0-1.0",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/octocat/example.git"
+  },
+  "bugs": "https://github.com/octocat/example/issues",
+  "keywords": [],
   "scripts": {
-    "start": "node .",
-    "build": "tsc",
     "build:watch": "tsc -w",
-    "lint": "eslint src",
+    "build": "tsc",
+    "docs": "typedoc --excludePrivate --logLevel Verbose src/index.ts",
+    "format:check": "prettier --config .prettierrc.json --check src *.json .*.json",
+    "format": "prettier --config .prettierrc.json --write src *.json .*.json",
     "lint:fix": "eslint src --fix",
-    "test": "jest --verbose",
-    "runAll": "yarn build && (yarn lint & yarn test)"
+    "lint": "eslint src",
+    "prebuild": "npm run format:check && npm run lint && npm run test",
+    "prepare": "husky install",
+    "start": "node .",
+    "test": "jest --verbose"
   },
   "devDependencies": {
-    "@tsconfig/node14": "^1.0.1",
+    "@types/jest": "^27.0.2",
     "@types/node": "^15.12.2",
     "@typescript-eslint/eslint-plugin": "^4.26.1",
     "@typescript-eslint/parser": "^4.26.1",
     "eslint": "^7.28.0",
+    "eslint-config-prettier": "^8.3.0",
     "jest": "^27.0.4",
-    "typescript": "^4.3.2"
+    "husky": "^7.0.2",
+    "prettier": "^2.4.1",
+    "prettier-package-json": "^2.6.0",
+    "prettier-plugin-organize-imports": "^2.3.4",
+    "ts-jest": "^27.0.5",
+    "typedoc": "^0.22.4",
+    "typescript": "next"
+  },
+  "engines": {
+    "node": ">=16.0.0"
   }
 }
